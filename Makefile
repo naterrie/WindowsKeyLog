@@ -5,13 +5,13 @@ WINLIBS = -luser32 -lpsapi -lws2_32 -lwinhttp -ldxgi
 
 all: injector.exe keylogger.dll installer.exe
 
-injector.exe: keylog/injector.c
+injector.exe: launcher/injector.c
 	$(MINGW_CC) $(CFLAGS) -o $@ $< $(WINLIBS)
 
 keylogger.dll: $(SRCS) keylog/dllmain.c
 	$(MINGW_CC) $(CFLAGS) -shared -o $@ $^ $(WINLIBS)
 
-installer.exe: keylog/installer.c
+installer.exe: installer/installer.c
 	$(MINGW_CC) $(CFLAGS) -o $@ $< $(WINLIBS)
 
 clean:
